@@ -210,7 +210,7 @@ int main(void)
 
 	fd = open("/dev/snd/controlC0", O_RDONLY);
 	if (fd < 0) {
-		printf("%s", strerror(errno));
+		printf("%s\n", strerror(errno));
 		return EXIT_FAILURE;
 	}
 

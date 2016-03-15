@@ -75,7 +75,7 @@ int main(void)
 
 	fd = open("/dev/snd/midiC0D0", O_RDWR);
 	if (fd < 0) {
-		printf("%s", strerror(errno));
+		printf("%s\n", strerror(errno));
 		return EXIT_FAILURE;
 	}
 
