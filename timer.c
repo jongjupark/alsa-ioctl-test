@@ -144,8 +144,12 @@ int main(void)
 	}
 
 	i = 0;
-	while (funcs[i])
-		funcs[i++](fd);
+	while (funcs[i]) {
+		if (!funcs[i++](fd)) {
+			printf("Timer test aborts.\n");
+			return EXIT_FAILURE;
+		}
+	}
 
 	return EXIT_SUCCESS;
 }
