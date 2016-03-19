@@ -164,7 +164,7 @@ static bool check_writei_frames(int fd)
 static bool check_readi_frames(int fd)
 {
 	struct snd_xferi xferi = {0};
-	TEST_IOCTL(fd, SNDRV_PCM_IOCTL_READI_FRAMES, &xferi, EBADFD);
+	TEST_IOCTL(fd, SNDRV_PCM_IOCTL_READI_FRAMES, &xferi, ENOTTY);
 }
 
 static bool check_writen_frames(int fd)
@@ -176,7 +176,7 @@ static bool check_writen_frames(int fd)
 static bool check_readn_frames(int fd)
 {
 	struct snd_xfern xfern = {0};
-	TEST_IOCTL(fd, SNDRV_PCM_IOCTL_READN_FRAMES, &xfern, EBADFD);
+	TEST_IOCTL(fd, SNDRV_PCM_IOCTL_READN_FRAMES, &xfern, ENOTTY);
 }
 
 static bool check_link(int fd)
