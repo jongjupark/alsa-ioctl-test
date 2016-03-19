@@ -32,11 +32,25 @@ static bool check_info(int fd)
 	TEST_IOCTL(fd, SNDRV_HWDEP_IOCTL_INFO, &info, 0);
 }
 
+static bool check_dsp_status(int fd)
+{
+	struct snd_hwdep_dsp_status status = {0};
+	TEST_IOCTL(fd, SNDRV_HWDEP_IOCTL_DSP_STATUS, &status, ENXIO);
+}
+
+static bool check_dsp_load(int fd)
+{
+	struct snd_hwdep_dsp_image image = {0};
+	TEST_IOCTL(fd, SNDRV_HWDEP_IOCTL_DSP_LOAD, &image, ENXIO);
+}
+
 int main(void)
 {
 	bool (*const funcs[])(int) = {
 		check_pversion,
 		check_info,
+		check_dsp_status,
+		check_dsp_load,
 		NULL,
 	};
 	unsigned int i;
