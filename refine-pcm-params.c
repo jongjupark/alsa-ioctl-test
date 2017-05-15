@@ -127,7 +127,7 @@ static const char *const flag_labels[] = {
     [2] = "no-period-wakeup",
 };
 
-const char *const info_labels[] = {
+static const char *const info_labels[] = {
     [0]     = "mmap",
     [1]     = "mmap-valid",
     [2]     = "double",
@@ -153,7 +153,7 @@ const char *const info_labels[] = {
     [21]    = "fifo-in-frames",
 };
 
-const int info_flags[] = {
+static const int info_flags[] = {
     [0]     = SNDRV_PCM_INFO_MMAP,
     [1]     = SNDRV_PCM_INFO_MMAP_VALID,
     [2]     = SNDRV_PCM_INFO_DOUBLE,
