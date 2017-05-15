@@ -179,36 +179,35 @@ static const int info_flags[] = {
     [21]    = SNDRV_PCM_INFO_FIFO_IN_FRAMES,
 };
 
-static inline struct snd_mask *get_mask(struct snd_pcm_hw_params *params,
-                                        unsigned int type)
+static struct snd_mask *get_mask(struct snd_pcm_hw_params *params,
+                                 unsigned int type)
 {
     return &params->masks[type - SNDRV_PCM_HW_PARAM_FIRST_MASK];
 }
 
-static inline struct snd_interval *get_interval(
-                                    struct snd_pcm_hw_params *params,
-                                    unsigned int type)
+static struct snd_interval *get_interval(struct snd_pcm_hw_params *params,
+                                         unsigned int type)
 {
     return &params->intervals[type - SNDRV_PCM_HW_PARAM_FIRST_INTERVAL];
 }
 
-static inline unsigned int get_mask_count(void)
+static unsigned int get_mask_count(void)
 {
     return SNDRV_PCM_HW_PARAM_LAST_MASK - SNDRV_PCM_HW_PARAM_FIRST_MASK + 1;
 }
 
-static inline unsigned int get_interval_count(void)
+static unsigned int get_interval_count(void)
 {
     return SNDRV_PCM_HW_PARAM_LAST_INTERVAL -
                                         SNDRV_PCM_HW_PARAM_FIRST_INTERVAL + 1;
 }
 
-static inline unsigned int get_mask_index(unsigned int index)
+static unsigned int get_mask_index(unsigned int index)
 {
     return index + SNDRV_PCM_HW_PARAM_FIRST_MASK;
 }
 
-static inline unsigned int get_interval_index(unsigned int index)
+static unsigned int get_interval_index(unsigned int index)
 {
     return index + SNDRV_PCM_HW_PARAM_FIRST_INTERVAL;
 }
