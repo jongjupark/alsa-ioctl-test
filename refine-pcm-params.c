@@ -178,7 +178,9 @@ static const int info_flags[] = {
     [18]    = SNDRV_PCM_INFO_HAS_LINK_ESTIMATED_ATIME,
     [19]    = SNDRV_PCM_INFO_HAS_LINK_SYNCHRONIZED_ATIME,
     /* Does not be disclosed to userspace. */
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,0,0)
     [20]    = SNDRV_PCM_INFO_DRAIN_TRIGGER,
+#endif
     [21]    = SNDRV_PCM_INFO_FIFO_IN_FRAMES,
 };
 
