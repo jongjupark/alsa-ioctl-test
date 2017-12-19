@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <linux/version.h>
 
 #include <string.h>
 #include <limits.h>
@@ -112,9 +113,11 @@ static const char *const format_labels[] = {
     [SNDRV_PCM_FORMAT_G723_40_1B]       = "g723-401b",
     [SNDRV_PCM_FORMAT_DSD_U8]           = "dsd-u8",
     [SNDRV_PCM_FORMAT_DSD_U16_LE]       = "dsd-u16-le",
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,18,0)
     [SNDRV_PCM_FORMAT_DSD_U32_LE]       = "dsd-u32-le",
     [SNDRV_PCM_FORMAT_DSD_U16_BE]       = "dsd-u16-be",
     [SNDRV_PCM_FORMAT_DSD_U32_BE]       = "dsd-u23-be",
+#endif
 };
 
 static const char *const subformat_labels[] = {
