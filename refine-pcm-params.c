@@ -93,6 +93,12 @@ static const char *const format_labels[] = {
     [SNDRV_PCM_FORMAT_IMA_ADPCM]        = "ima-adpcm",
     [SNDRV_PCM_FORMAT_MPEG]             = "mpg",
     [SNDRV_PCM_FORMAT_GSM]              = "gsm",
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(4,16,0)
+    [SNDRV_PCM_FORMAT_S20_LE]           = "s20-le",
+    [SNDRV_PCM_FORMAT_S20_BE]           = "s20-be",
+    [SNDRV_PCM_FORMAT_U20_LE]           = "u20-le",
+    [SNDRV_PCM_FORMAT_U20_BE]           = "u20-be",
+#endif
     /* Entries for 25-30 are absent. */
     [SNDRV_PCM_FORMAT_SPECIAL]          = "special",
     [SNDRV_PCM_FORMAT_S24_3LE]          = "s24-3le",
@@ -111,8 +117,10 @@ static const char *const format_labels[] = {
     [SNDRV_PCM_FORMAT_G723_24_1B]       = "g723-241b",
     [SNDRV_PCM_FORMAT_G723_40]          = "g723-40",
     [SNDRV_PCM_FORMAT_G723_40_1B]       = "g723-401b",
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(3,10,0)
     [SNDRV_PCM_FORMAT_DSD_U8]           = "dsd-u8",
     [SNDRV_PCM_FORMAT_DSD_U16_LE]       = "dsd-u16-le",
+#endif
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(3,18,0)
     [SNDRV_PCM_FORMAT_DSD_U32_LE]       = "dsd-u32-le",
     [SNDRV_PCM_FORMAT_DSD_U16_BE]       = "dsd-u16-be",
